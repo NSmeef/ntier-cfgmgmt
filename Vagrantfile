@@ -63,7 +63,7 @@ Vagrant.configure("2") do |config|
   end
 
   config.vm.provision "shell", run: "always" do |s|
-    s.inline = "cd /vagrant/stack && docker-compose up -d"
+    s.inline = "cd /vagrant/stack && docker-compose up -d --build"
   end
 
 end
