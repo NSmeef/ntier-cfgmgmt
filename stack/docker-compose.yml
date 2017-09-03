@@ -1,5 +1,10 @@
 version: '2'
 services:
+  proxy:
+    build:
+      context: ./proxy
+    ports:
+      - "80:80"
   db: 
     image: redis:alpine
     ports: 
