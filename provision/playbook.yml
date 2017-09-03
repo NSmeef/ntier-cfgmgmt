@@ -14,4 +14,12 @@
     - name: Add Docker GPG key
       shell: curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
 
-    
+    - name: Add Dockers repository 
+      apt_repository:
+        repo: deb [arch=amd64] https://download.docker.com/linux/ubuntu trusty stable 
+        state: present
+        update_cache: yes
+
+    - name: Install Docker CE
+      apt: name=docker-ce state=installed
+      
