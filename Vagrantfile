@@ -62,4 +62,8 @@ Vagrant.configure("2") do |config|
     ansible.playbook = "provision/playbook.yml"
   end
 
+  config.vm.provision "shell", run: "always" do |s|
+    s.inline = "cd /vagrant/stack && docker-compose up -d"
+  end
+
 end
