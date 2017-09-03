@@ -5,6 +5,11 @@ services:
       context: ./proxy
     ports:
       - "80:80"
+    links:
+      - "app"
+  app:
+    build:
+      context: ./app
   db: 
     image: redis:alpine
     ports: 
