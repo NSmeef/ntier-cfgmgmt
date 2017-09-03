@@ -10,7 +10,7 @@ services:
   app:
     build:
       context: ./app
+    links:
+      - "db"
   db: 
     image: redis:alpine
-    ports: 
-      - "6379:6379"
