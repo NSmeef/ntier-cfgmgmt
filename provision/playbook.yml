@@ -1,12 +1,17 @@
 ---
 - hosts: all
+  become: true
   tasks:
     - name: Install prerequisite software for Docker and docker-compose
       apt: name={{item}} state=installed
-      become: true
       with_items:
         - apt-transport-https
         - ca-certificates 
         - curl 
         - software-properties-common
         - python-pip
+
+    - name: Add Docker GPG key
+      shell: curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+
+    
