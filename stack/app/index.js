@@ -20,7 +20,8 @@ app.get('/', function(req,res){
 })
 
 app.get('/setKeys', function(req,res){
-    client.set(req.query.value, req.query.value);    
+    client.set(req.query.value, req.query.value);  
+    res.redirect('/');  
 })
 
 app.listen(3000, function() {
